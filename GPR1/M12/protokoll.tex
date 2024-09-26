@@ -1,0 +1,221 @@
+\documentclass[bibliography=totocnumbered]{scrartcl}
+\input{Settings/packages}
+\input{Settings/commands}
+\input{Settings/settings}
+\date{12.05.2021}
+
+\title{M12 Saitenschwingung}
+
+\rfoot{M12}
+
+\begin{document}
+	\newgeometry{left=14mm, right=13.5mm, top=60mm, bottom=30mm}
+	\begin{titlepage}
+		\begin{center}
+			{\huge{Grundpraktikum}}\\\vspace*{15mm}
+			{\huge{\textbf{\thetitle}}}\\\vspace*{20mm}
+			{\theauthor}\\\vspace*{10mm}
+			{\thedate}\\\vspace*{40mm}
+			\vspace{1.5cm}
+			
+			
+			
+		\end{center}
+	\end{titlepage}
+	\makeatother
+	\restoregeometry
+	\newpage
+	
+	\tableofcontents
+	\listoffigures 
+	\listoftables
+	\newpage
+	
+	
+	
+	\section{Versuchsbeschreibung}
+	% Versuchziel: Was will ich mit dem Versuch erreichen?
+	% Aufgabenstellung
+	% theoretische Einführung: Wie sieht die Physik dahinter aus (Knapp fassen)? Welche Formeln verwende ich? Wie ist der Versuch aufgebaut (Skizze, Abbildungen etc)? Welche Einheiten kommen vor?
+	\begin{figure}[H]
+	    \centering
+	    \includegraphics[width=\linewidth]{fotos/gpr1/M12-Versuchsaufbau.png}
+	    \caption{Versuchaufbau; Sp1,Sp2=Einspannstellen; R1,R2=Reiter; M=Massestück; L=Lasthebel; JS=Justierschraube; ER=Erregerspule; DR=Detektorspule}							% Bildunterschrift
+		\label{Abb: Versuchaufb}							% für Textverweise
+	\end{figure}
+	
+	Das Ziel des Versuchs ist es, die transversalle Schwingung einer Saite zu untersuchen. Dabei betrachten wir die Schwingung als stehende Welle mit Ober- und Grundschwingungen. Im Veruch untersuchen wir den linearen Zusammenhang von der Resonanzfrequenz $ f_{n} $ mit der Anzahl $ n $ an Schwingungsbäuchen, unterschiedlichen Längen $ l $ und unterschiedlichen Zugspannung $ \sqrt{F_{0} }$. Für die Resonanzfrequenz verwenden wir die Gleichung:
+	\begin{equation}\label{eq: Resonanzfrequenz}
+		f_{n}^{trans}=\dfrac{n}{2l}\sqrt{\dfrac{F_{0}}{\mu}}
+	\end{equation}
+	Die Phasengeschwindigkeit, welche wir benötigen, ist folgendermaßen definiert:
+	\begin{equation}\label{eq: Phasengeschwindigkeit}
+		c^{trans}=\sqrt{\dfrac{F_{0}}{\mu}}
+	\end{equation}
+	Für ein tieferes theoretisches Verständnis ist das Material \textit{M12-Saitenschwingung} hinzu zu ziehen.\\
+	\\
+  	Eine Stahlsaite ist zwischen zwei Einspannstellen eingespannt. Durch zwei Reiter können wir die Länge der Saite, die schwingt, einstellen. Die Saite wird durch eine Erregerspule angeregt. Knoten und Bäuche der schwingenden Saite können mit der Detektorspule ausfindig gemacht werden, welche dann auf dem Zweikanaloszilloskop angezeigt werden.\footnote{Wenn der zweite Kanal nichts anzeigt, handelt es sich um einen Knoten. Wenn wir einen Schwingungsbauch gefunden haben, sind sich die Applituden von Kanal 1 und 2 ähnlich.} Die Saite wird durch die Zugspannung $ F_{0} $ gespannt, welche durch den Lastenarm und an diesem befestigten Massen hervorgerufen wird. Den genauen Aufbau können wir in Abb. (\ref{Abb: Versuchaufb}) betrachten.
+	
+	\newpage
+	\section{Versuchdurchführung \\und Versuchauswertung}
+	% übersichtliche Darstellung der Messdaten, Rechenergebnisse (chronologische Reihenfolge), Grafiken etc.
+	
+	\subsection{Resonanzfrequenz in Abhängigkeit der Schwingungsbäuche}
+	\input{GPR1/M12/tables/t1}
+	Unsere Messergebnisse aus dem ersten Teilversuch stehen in der Tabelle (\ref{tab: n}). Die Unsicherheiten von $ f_{n} $ haben wir nach der Frequenzgenauigkeit aus Abb. (\ref{Abb: Agaben}) berechnet:
+	\begin{equation}\label{eq: Unsicherheit von f_n}
+		u_{f_{n}}=0.01\cdot f_{n}+0.02
+	\end{equation}
+	Für die lineare Regression haben wir die folgende Gleichung verwendet:
+	\begin{equation}\label{eq: Regression 1}
+		f_{n}=a\cdot n+b
+	\end{equation}
+	Wobei $ a $ der Anstieg ist und durch den Vergleich mit der Glg. (\ref{eq: Resonanzfrequenz}) können wir den Anstieg $ a $ wie folgt definieren:
+	\begin{equation}\label{eq: Anstieg 1}
+		a=\dfrac{\sqrt{\dfrac{F_{0}}{\mu}}}{2l}
+	\end{equation}
+	Unser Ergebnis für den Anstieg $ a $ und den Achsenabschnitt $ b $ sind wie folgt: 
+	\begin{align}\label{eq: Regressionparameter 1}
+		a=78.84\pm 0.11 \hspace{3mm}\text{Hz}\\
+		b=-0.51\pm 0.26  % möglicher Fehler: f_n nicht quadriert und b sollte FH/(mu*2*l) sein
+	\end{align}
+	Unsere Messwerte und der Fit mit den eben benannten Regressionsparametern sind in der Abb. (\ref{Abb: Regression 1}) enthalten.\\
+	Die Phasengeschwindigkeit $ c^{trans} $ berechen wir aus Glg. (\ref{eq: Anstieg 1}) und Glg. (\ref{eq: Phasengeschwindigkeit}):
+	\begin{align}
+		a=\dfrac{c}{2l}\\
+		\Leftrightarrow c=2al
+	\end{align}
+	Sodass wir für $ c^{trans} $ herausbekommen:
+	\begin{equation}\label{eq: c_trans ergebnis}
+		c=(94.61\pm0.20) \hspace{3mm} \text{ms$ ^{-1} $}
+	\end{equation}
+	\newpage
+	
+	\subsection{Resonanzfrequenz in Abhängigkeit der Länge}
+	\input{GPR1/M12/tables/t2}
+	Unsere Messergebnisse aus dem zweiten Teilversuch stehen in der nebigen Tabelle (\ref{tab: l}). Die Unsicherheit von $ l $ haben wir folgendermaßen berechnet: 
+	\begin{align}\label{eq: l unsicherheit}
+		u_{l}=\sqrt{u_{Anfangswert}^{2}+u_{Endwert}^{2}}
+	\end{align}
+Auf diese Fehlerfortpflanzung kommen wir, weil wir $ l $ folgendermaßen berechnet haben:
+\begin{equation}\label{eq: Länge}
+	l=l_{Endwert}-l_{Anfangswert},\text{ mit } l_{Anfangswert}<l_{Endwert}
+\end{equation}
+Dabei haben wir eine Ableseungenauigkeit von $ 0.5 $ mm angenommen.\\
+Wie wir auf die Unsicherheiten von $ f_{1} $ kommen, haben wir bereits in Glg. (\ref{eq: Unsicherheit von f_n}) erwähnt.\\
+Die lineare Regression der Daten befindet sich in Abb. (\ref{Abb: Regression 2}). Für die Fitgerade haben wir uns für die folgende Form entschieden:
+\begin{equation}\label{eq: Regression 2}
+	f_{1}=\dfrac{c}{2l}+b
+\end{equation}
+	Dabei bezeichnet $ c $ die Phasengeschwindigkeit, $ b $ den Achsenabschnitt und $ l $ bezeichnet die Länge, welche wir in der Tabelle  (\ref{tab: l}) haben. Für $ c $ und b haben wir folgende Werte herausbekommen:\footnote{Wir haben uns für genau dieses vorgehen entschieden, weil wir von Python direkt die Phasengeschwindigkeit mit Unsicherheit bekommen und uns damit etwas Rechenarbeit ersparrt haben.}
+	\begin{align}
+		c=(96.9\pm 1.5)\text{ ms$ ^{-1} $}\\
+		b=(-5.5\pm 2.2) \text{ Hz}
+	\end{align}
+Der Anstieg ist \begin{equation}
+	a=\dfrac{c}{2}=(48.45\pm 0.75)\text{ ms$ ^{-1} $}
+\end{equation}
+Vergleichen wir die Phasengeschwindigkeiten von diesem Teilversuch und dem ersten Teilversuch:
+\begin{align}\label{eq: Vergleich}
+		c=(94.61\pm0.20) \hspace{3mm} \text{ms$ ^{-1} $}\\
+		c=(96.9\pm 1.5)\text{ ms$ ^{-1} $}
+\end{align}
+so sehen wir, dass die zweite Phasengeschwindigkeit etwas höher ist mit einer größeren Unsicherheit. Das lässt darauf schließen, dass wir bei dem zweiten Teilversuch etwas ungenauer gearbeitet haben.
+\newpage
+
+	\subsection{Resonanzfrequenz in Abhängigkeit der Zugspannung}
+	\input{GPR1/M12/tables/t3}
+Die Messdaten aus dem dritten Teilversuch sind hier in der Tabelle (\ref{tab: m}). Die Unsicherheiten von $ f_{1} $ haben wir bereits besprochen. Die Unsicherheiten der Massen ergeben sich aus der Fehlerforpflanzung, wobei wir einen konstanten Fehler für die einzelnen Massestücke\footnote{siehe Abb. (\ref{Abb: Agaben})} haben. Deshalb könne wir die Fehlerfortpflanzung folgendermaßen schreiben:
+\begin{equation}
+	u_{m}=u_{\text{Massestück}}\cdot \sqrt{n_{\text{Anzahl an Massestücken}}}
+\end{equation}
+	Die lineare Regression zwischen $ f_{1}^{2} $ und $ F_{0} $ haben wir in Abb. (\ref{Abb: Regression 3}). Für den Anstieg bekommen wir: 
+	\begin{equation}\label{eq: Anstieg 3}
+		a=(202\pm 4)\left(\dfrac{\text{ Hz}}{\text{N}}\right)^{2}
+	\end{equation}
+\\\\
+	Für den Achsenabschnitt bekommen wir:
+	\begin{equation}\label{eq: Achsenabschnitt 3}
+		b=( 240\pm 70)\text{ Hz}^{2}
+	\end{equation}
+	Für den Lastenhebel bekommen wir eine Gewichtskraft von:
+	\begin{equation}
+		F_{H}=(1.2\pm0.3)\text{N}
+	\end{equation}	
+	und für $ \mu $ bekommen wir einen Wert von:
+	\begin{equation}
+		\mu = 0.00344\pm6\cdot 10^{-5} \text{ kg m}^{-1}
+	\end{equation}
+	
+	\subsection{Berechnungen zu $ \mu $}
+	Wir bekommen für $ \mu $ aus den drei Teilversuchen folgenden Ergebnisse:
+	\begin{align}
+		\mu_{1}=0.00340\pm 4\cdot 10^{-5}\text{ kg m}^{-1}\\
+		\mu_{2}=0.00326\pm0.00011\text{ kg m}^{-1}\\
+		\mu_{3}=0.00344\pm6\cdot 10^{-5}\text{ kg m}^{-1}
+	\end{align}
+Das Mittel von $ \mu $ ist:
+ \begin{equation}
+ 	\mu_{mittel} = 0.00337\pm 4\cdot 10^{-5}\text{ kg m}^{-1}
+ \end{equation}
+	
+	
+	\section{Diskussion}
+	% Diskussion über Versuchsergebnisse und Versuchsaufbau
+	% gründliche Analyse der aufgetretenen Messabweichungen und ihre Ursachen
+	% ergebnisse mit Referenzwerten unter angaben von Quellen vergleichen
+	% Angabe von Messunsicherheiten und ihre Berechnung bzw. Abschätzung
+	% experimentele Methoden und Messverfahren  kritisch beobachten und diskutieren, Schlussfolgerungen gezogen werden
+	% Resumé bzw. eine kurze Zusammenfassung
+	Die große Unsicherheit bei $ b $ in den Ergebnissen (\ref{eq: Regressionparameter 1}) ist damit zu erklären, dass wir $ f_{n} $ hätten quadrieren müssen und dann wäre $ b $ wie folgt definiert gewesen:
+	\begin{equation}
+		b=\dfrac{F_{H}}{4l^{2}\mu}
+	\end{equation}
+	Zweite Regression ist fällt ähnlich wie natürlicher Logarithmus. Dies könnte darauf hinweisen, dass wir ungenau gearbeitet haben.\\
+	Das wir ein gemitteltes $ \mu $ von $ 0.00337\pm 4\cdot 10^{-5}\text{ kg m}^{-1} $ bekommen, welches etwa dem Vierfachen vom Hersteller angegebenem $ \mu = 0.00078 \text{ kg m}^{-1}$ ist, schließt darauf hin, dass wir sehr ungenau gemessen haben oder dass wir bei den Achsenabschnitten grobe Fehler gemacht haben.
+	
+	
+	
+	\newpage
+    \appendix
+	\section{Anhang}
+	
+	
+	\subsection{Abbildungen}
+	\begin{figure}[!ht]
+		\centering									% Bild Zentrierung
+		\includegraphics[width=350pt]{fotos/gpr1/Regression_A1.png}			% einfügen des Bildes/ mit width Bildbreite einstellen
+		\caption{lineare Regression zwischen Resonanzfrequenz und unterschiedlichen Bäuchen.}							% Bildunterschrift
+		\label{Abb: Regression 1}							% für Textverweise
+	\end{figure}
+\begin{figure}[!ht]
+	\centering									% Bild Zentrierung
+	\includegraphics[width=350pt]{fotos/gpr1/Regression_A2.png}			% einfügen des Bildes/ mit width Bildbreite einstellen
+	\caption{lineare Regression zwischen Resonanzfrequenz $f_{n=1}$ und der Saitenlänge $l$ }							% Bildunterschrift
+	\label{Abb: Regression 2}							% für Textverweise
+\end{figure}
+\newpage
+\begin{figure}[!ht]
+	\centering									% Bild Zentrierung
+	\includegraphics[width=350pt]{fotos/gpr1/Regression_A3.png}			% einfügen des Bildes/ mit width Bildbreite einstellen
+	\caption{lineare Regression zwischen Resonanzfrequenz $ f $ und unterschliedlichen Zugspannungen $ F_{0} $.}							% Bildunterschrift
+	\label{Abb: Regression 3}							% für Textverweise
+\end{figure}
+\subsection{Angaben am Versuchsplatz}
+
+\begin{figure}[!ht]
+	\centering									% Bild Zentrierung
+	\includegraphics[width=300pt]{fotos/gpr1/Versuch.M12.pdf}			% einfügen des Bildes/ mit width Bildbreite einstellen
+	\caption{Angaben am Versuchsplatz für den Funktionsgenerator, die Massestücke und die Stahlsaite}							% Bildunterschrift
+	\label{Abb: Agaben}							% für Textverweise
+\end{figure}
+
+\newpage
+
+
+	\newpage
+	
+	\printbibliography[title={Quellenverzeichnis}]
+	
+	
+\end{document}

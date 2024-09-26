@@ -1,0 +1,30 @@
+\documentclass{scrarticle}
+\input{Settings/packages}
+\input{Settings/commands}
+\input{Settings/settings}
+\title{Rechnungen zum T1-Versuch}
+\begin{document}
+
+\maketitle
+	\tableofcontents
+	
+    \input{Settings/acronyms}
+\section{Rechnungen}
+Quelle: \cite[\ac{vgl.}][15]{Muller.g}
+\begin{align}
+    c_w &= 4.1813 \unit{\kilo\joule\per\kilogram\per\kelvin}\\
+    U \cdot I \cdot \Delta t &= (m_w \cdot c_w+ C_K) \Delta T\\
+    \Delta T &= \frac{U \cdot I }{m_w \cdot c_w+ C_K}\cdot \Delta t\\
+    a &= \frac{U \cdot I }{m_w \cdot c_w+ C_K}\\
+    \Rightarrow C_k &= \frac{IU}{a}-m_w \cdot c_w
+\end{align}
+\noindent Aufgabe 1:
+\begin{align}
+    246 \unit{\milli\litre} \Rightarrow 0.246\unit{\kilogram}
+\end{align}
+\noindent Aufgabe 3:
+\begin{align}
+    242\unit{\milli\litre} \Rightarrow 0.242\unit{\kilogram}
+\end{align}
+\printbibliography
+\end{document}
